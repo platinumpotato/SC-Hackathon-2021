@@ -1,0 +1,110 @@
+a {
+    text-decoration: none;
+    color: #212529;
+}
+
+.sign-in-btn {
+    position: absolute;
+    right: 20px;
+}
+
+.navbar-brand {
+    padding-left: 10px;
+}
+
+.main-sect {
+    height: 75vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.body-part-selector {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.body-part-question {
+    width: 100%;
+    font-size: calc(1.8rem + .9vw);
+    margin-top: 10%;
+    text-align: center;
+}
+
+.body-part-options {
+    width: 18%;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#arms {
+    background-color: #F5B041;
+}
+
+#legs {
+    background-color: #F7DC6F;
+}
+
+#head {
+    background-color: #2ECC71;
+}
+
+#other-body {
+    background-color: #5DADE2;
+}
+
+.showcase {
+    margin: 50px 0;
+}
+
+.showcase-img {
+    height: 40vh;
+    width: 50%;
+}
+
+.showcase-card {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.card-text {
+    width: 50%;
+}
+
+.card-text-left {
+    padding-left: 6%;
+}
+
+footer {
+    height: 100%;
+    background: #0f0f0f;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+footer .container>div {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 3rem .9rem;
+}
+#product-selector{
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+}
