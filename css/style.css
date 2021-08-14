@@ -85,7 +85,7 @@ footer {
     height: 100%;
     background: #0f0f0f;
     position: relative;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
 }
 
@@ -102,9 +102,4 @@ footer .container>div {
     flex-grow: 1;
     flex-basis: 0;
     padding: 3rem .9rem;
-}
-#product-selector{
-    padding: 0 10%;
-    display: flex;
-    justify-content: space-between;
 }
