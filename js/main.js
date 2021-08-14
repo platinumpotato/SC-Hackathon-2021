@@ -13,9 +13,7 @@ let signInBtnEl = document.getElementById('sign-in-btn')
 let accountStatus = localStorage.getItem('account-status')
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('i run');
     if (accountStatus === 'signed in') {
-        console.log('signed');
         usernameTxtEl.style.display = 'inline'
         logOutBtnEl.style.display = 'inline'
         signInBtnEl.style.display = 'none'
@@ -25,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let username = accountData.username
         usernameTxtEl.innerText = 'User: ' + username
 
-        logOutBtnEl.addEventListener('click', ()=>{
+        logOutBtnEl.addEventListener('click', () => {
             localStorage.setItem('account-status', 'logged out')
             localStorage.removeItem('account')
             window.alert('logged out')
             location.reload()
         })
-    } else{
+    } else {
         usernameTxtEl.style.display = 'none'
         logOutBtnEl.style.display = 'none'
         signInBtnEl.style.display = 'inline'
@@ -40,5 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 legsEl.addEventListener('click', () => {
     localStorage.setItem('body-part', 'leg')
+    location.href = 'browse.html'
+})
+armsEl.addEventListener('click', () => {
+    localStorage.setItem('body-part', 'arm')
+    location.href = 'browse.html'
+})
+headEl.addEventListener('click', () => {
+    localStorage.setItem('body-part', 'head')
+    location.href = 'browse.html'
+})
+othersEl.addEventListener('click', () => {
+    localStorage.setItem('body-part', 'other')
     location.href = 'browse.html'
 })

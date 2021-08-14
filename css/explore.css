@@ -7,6 +7,7 @@ section{
     padding: 20px 30px;
     background-color: #F2F4F4;
     margin-bottom: 50px;
+    position: relative;
 }
 .post-user{
     font-size: medium;
@@ -25,4 +26,16 @@ section{
 }
 [contenteditable]{
     outline: none;
+}
+
+.vote-container{
+    position: absolute;
+    right: 20px;
+}
+.vote-count{
+    text-align: center;
+    margin: 0px;
+}
+.upvote-icon, .downvote-icon{
+    cursor: pointer;
 }

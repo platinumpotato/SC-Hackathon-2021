@@ -29,5 +29,30 @@
         "content": "Steps on a ladder are usually to far apart for people with leg disabilities like me. I have both my legs cut off from the knee down due to a serious injury. If there are ladders with smaller gaps between the steps, people like me can climb it safely.",
         "user": "uyen1",
         "img": ""
+    },
+
+    {
+        "name": "Tabletop Scissors",
+        "desc": "For those with limited finger movement",
+        "link": "https://www.amazon.com/Mounted-Table-Top-Scissor-Plastic/dp/B0868WLV8P",
+        "img": "https://m.media-amazon.com/images/I/71zNhFLpT7L._AC_SX679_.jpg"
+    },
+    {
+        "name": "GlassOuse",
+        "desc": "Device that help you interact with electronics",
+        "link": "https://glassouse.com/product/glassouse-v1-4-assistive-device/",
+        "img": "https://glassouse.com/wp-content/uploads/2021/07/1.jpg"
+    },
+    {
+        "name": "The Hydrant Drinking Bottle",
+        "desc": "Water bottle with long straw",
+        "link": "https://www.amazon.co.uk/gp/product/B006H4T93C/",
+        "img": "https://m.media-amazon.com/images/I/51kCYd1NhkL._AC_SL1000_.jpg"
+    },
+    {
+        "name": "Maltron Stick Keyboard",
+        "desc": "Keyboard with head/mouth stick",
+        "link": "https://www.maltron.com/store/p24/Maltron_Head%2FMouth_Stick_Keyboard_-_US_English.html",
+        "img": "https://www.maltron.com/uploads/6/1/2/5/61250099/published/640px-dsc-3559.jpg?1502792176"
     }
 ]

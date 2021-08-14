@@ -8,15 +8,10 @@ let usernameTxtEl = document.getElementById('username-text')
 let logOutBtnEl = document.getElementById('log-out-btn')
 let signInBtnEl = document.getElementById('sign-in-btn')
 
-let retrievedAccount = localStorage.getItem('account')
-let accountData = JSON.parse(retrievedAccount)
-let username = accountData.username
 let accountStatus = localStorage.getItem('account-status')
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('i run');
     if (accountStatus === 'signed in') {
-        console.log('signed');
         usernameTxtEl.style.display = 'inline'
         logOutBtnEl.style.display = 'inline'
         signInBtnEl.style.display = 'none'
@@ -26,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let username = accountData.username
         usernameTxtEl.innerText = 'User: ' + username
 
-        logOutBtnEl.addEventListener('click', ()=>{
+        logOutBtnEl.addEventListener('click', () => {
             localStorage.setItem('account-status', 'logged out')
             localStorage.removeItem('account')
             window.alert('logged out')
             location.reload()
         })
-    } else{
+    } else {
         usernameTxtEl.style.display = 'none'
         logOutBtnEl.style.display = 'none'
         signInBtnEl.style.display = 'inline'
@@ -56,34 +51,97 @@ async function postNewData(newData) {
     const data = await response.json()
 }
 
+async function updateData(id, newData) {
+    const response = await fetch(myApiUrl + '/' + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newData)
+    })
+    const data = await response.json()
+}
+
 async function renderPosts() {
     const postData = await getData()
-    sectionEl.innerHTML = `<button type="button" class="btn btn-dark" id="post-btn">Post</button>
-    <div class="post" id="post-inp">
+    if (accountStatus == 'signed in') {
+        let retrievedAccount = localStorage.getItem('account')
+        let accountData = JSON.parse(retrievedAccount)
+        let username = accountData.username
+
+        sectionEl.innerHTML = `<button type="button" class="btn btn-dark" id="post-btn">Post</button>
+        <div class="post" id="post-inp">
         <h3 class="post-title" id="title-inp" contenteditable="true">Write your title</h3>
         <h4 class="post-user" id="post-user">Posted by user ${username}</h4>
         <p class="post-content" id="content-inp" contenteditable="true">Write your post here!</p></div>`
-    for (let i = postData.length - 1; i >= 0 ; i--) {
-        sectionEl.innerHTML += `<div class="post">
+
+        let upvoteIconEls = document.getElementsByClassName('upvote-icon')
+        let downvoteIconEls = document.getElementsByClassName('downvote-icon')
+        for (let i = postData.length -1; i >= 0; i--) {
+            sectionEl.innerHTML += `<div class="post">
+            <div class="vote-container">
+            <img class="upvote-icon" src="/assets/up-arrow (1).png" alt="">
+            <p class="vote-count">${postData[i].votes}</p>
+            <img class="downvote-icon" src="/assets/down-arrow (1).png" alt=""></div>
+            <h3 class="post-title">${postData[i].title}</h3>
+            <h4 class="post-user">Posted by user ${postData[i].user}</h4>
+            <p class="post-content">${postData[i].content}</p></div>`
+            // upvoteIconEls[i].addEventListener('click', () => {
+            //     for (let c = 0; c < postData.length; c++) {
+            //         if (this == upvoteIconEls[c]) {
+            //             console.log(upvoteIconEls[c]);
+            //             let newVotes = postData[c].votes++
+            //             updateData(c, {
+            //                 id: postData[c].id,
+            //                 title: postData[c].title,
+            //                 content: postData[c].content,
+            //                 user: postData[c].user,
+            //                 votes: newVotes
+            //             })
+            //         }
+            //     }
+            // })
+            // downvoteIconEls[i].addEventListener('click', () => {
+            //     for (let c = 0; c < postData.length; c++) {
+            //         if (this == downvoteIconEls[c]) {
+            //             console.log(downvoteIconEls[c]);
+            //             let newVotes = postData[c].votes--
+            //             updateData(c, {
+            //                 id: postData[c].id,
+            //                 title: postData[c].title,
+            //                 content: postData[c].content,
+            //                 user: postData[c].user,
+            //                 votes: newVotes
+            //             })
+            //         }
+            //     }
+            // })
+        }
+        let postBtnEl = document.getElementById('post-btn')
+        postBtnEl.addEventListener('click', async () => {
+            let contenteditables = document.querySelectorAll('[contenteditable]')
+            let text1 = contenteditables[0].textContent
+            let text2 = contenteditables[1].textContent
+            await postNewData({
+                id: postData.length,
+                title: text1,
+                content: text2,
+                user: username
+            })
+            renderPosts()
+        })
+    } else {
+        sectionEl.innerHTML = `<div class="post" id="post-inp">
+        <h3 class="post-title" id="title-inp" contenteditable="false">Sign in first!</h3>
+        <h4 class="post-user" id="post-user"></h4>
+        <p class="post-content" id="content-inp">You must sign in to post and vote on other users' posts.</p></div>`
+        for (let i = postData.length - 1; i >= 0; i--) {
+            sectionEl.innerHTML += `<div class="post">
         <h3 class="post-title">${postData[i].title}</h3>
         <h4 class="post-user">Posted by user ${postData[i].user}</h4>
         <p class="post-content">${postData[i].content}</p></div>`
+        }
     }
-    let postBtnEl = document.getElementById('post-btn')
-    postBtnEl.addEventListener('click', async () => {
-        let contenteditables = document.querySelectorAll('[contenteditable]')
-        console.log(contenteditables[0]);
-        let text1 = contenteditables[0].textContent
-        let text2 = contenteditables[1].textContent
-        console.log(text2);
-        await postNewData({
-            id: postData.length,
-            title: text1,
-            content: text2,
-            user: username
-        })
-        renderPosts()
-    })
 }
 
 renderPosts()
