@@ -10,7 +10,7 @@
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/browse.css">
+    <link rel="stylesheet" href="/css/explore.css">
     <title>Document</title>
 
     <style>
@@ -26,18 +26,33 @@
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="">Browse</a>
+                <a class="nav-link" aria-current="page" href="browse.html">Browse</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="">Explore</a>
             </li>
         </ul>
-        <button class="sign-in-btn"><a href="signUpIn.html">Sign in</a></button>
+        <div id="account-nav-div">
+            <a class="nav-link disabled" id="username-text">User: </a>
+            <button id="sign-in-btn"><a href="signUpIn.html">Sign in</a></button>
+            <button id="log-out-btn">Log out</button>
+        </div>
     </nav>
-    <section>
-
+    <section id="section">
+        <button type="button" class="btn btn-dark" id="post-btn">Post</button>
+        <div class="post" id="post-inp">
+            <h3 class="post-title" id="title-inp" contenteditable="true">Write your title</h3>
+            <h4 class="post-user" id="post-user">Posted by user uyen1</h4>
+            <p class="post-content" id="content-inp" contenteditable="true">Write your post here!</p>
+        </div>
+        <div class="post">
+            <h3 class="post-title">Ladders with closer steps</h3>
+            <h4 class="post-user">Posted by user uyen1</h4>
+            <p class="post-content"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum maiores deleniti perferendis placeat
+                dolores quas reiciendis, cum mollitia non illo voluptatem, quod dicta culpa totam autem ratione.
+                Molestias, dicta maxime!</p>
+        </div>
     </section>
-
 
     <footer class="footer" id="footer">
         <div class="container">
@@ -60,7 +75,7 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="main.js"></script>
+    <script src="/js/explore.js"></script>
 </body>
 
 </html>

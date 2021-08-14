@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/browse.css">
     <title>Document</title>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
     </style>
@@ -32,15 +32,18 @@
                 <a class="nav-link" href="explore.html">Explore</a>
             </li>
         </ul>
-        <button class="sign-in-btn"><a href="signUpIn.html">Sign in</a></button>
+        <div id="account-nav-div">
+            <a class="nav-link disabled" id="username-text">User: </a>
+            <button id="sign-in-btn"><a href="signUpIn.html">Sign in</a></button>
+            <button id="log-out-btn">Log out</button>
+        </div>
     </nav>
     <section>
         <h2 class="product-title">This is what we have for you</h2>
         <div id="product-selector">
             <div class="product">
                 <h3 class="product-name">product name</h3>
-                <img class="product-img"
-                    src="" alt="">
+                <img class="product-img" src="" alt="">
                 <p class="product-desc"></p>
                 <a href=""></a>
             </div>
@@ -65,9 +68,9 @@
         </div>
         <h2 data-aos="fade-down">Design and post your own, or explore designs from people just like you</h2>
         <div data-aos="fade-down" class="btn-container txt-center">
-            <button type="button" class="btn btn-warning btn-lg">Create/Explore</button></div>
+            <button onclick="location.href = 'explore.html'" type="button"
+                class="btn btn-warning btn-lg">Create/Explore</button></div>
     </section>
-
 
     <footer class="footer" id="footer">
         <div class="container">
@@ -90,7 +93,7 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="main.js"></script>
+    <script src="/js/browse.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+section{
+    padding: 50px 10%;
+    position: relative;
+}
+.post{
+    border-radius: 10px;
+    padding: 20px 30px;
+    background-color: #F2F4F4;
+    margin-bottom: 50px;
+}
+.post-user{
+    font-size: medium;
+}
+.post-content{
+    margin-top: 20px;
+}
+#post-inp{
+    background-color: #FCF3CF ;
+}
+
+#post-btn{
+    position: absolute;
+    right: 12%;
+    top: 70px;
+}
+[contenteditable]{
+    outline: none;
+}

@@ -3,15 +3,19 @@ a {
     color: #212529;
 }
 
-.sign-in-btn {
+/* .sign-in-btn {
     position: absolute;
     right: 20px;
-}
+} */
 
 .navbar-brand {
     padding-left: 10px;
 }
-
+#account-nav-div{
+    position: absolute;
+    right: 20px;
+    display: flex;
+}
 .main-sect {
     height: 75vh;
     display: flex;
@@ -102,4 +106,8 @@ footer .container>div {
     flex-grow: 1;
     flex-basis: 0;
     padding: 3rem .9rem;
+}
+
+#username-text{
+    color: white;
 }

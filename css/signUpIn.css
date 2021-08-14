@@ -1,0 +1,35 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+input {
+    outline: none;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 20%;
+}
+
+#title {
+    margin-top: 10%;
+}
+
+#username-inp {
+    margin-top: 20px;
+}
+
+#sign-in-changer, #sign-up-changer {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#sign-in-btn {
+    width: 15%;
+    margin-bottom: 20px;
+}
+
+#confirm-pass-inp{
+    display: none;
+}
