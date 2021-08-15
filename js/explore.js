@@ -78,7 +78,9 @@ async function renderPosts() {
         let upvoteIconEls = document.getElementsByClassName('upvote-icon')
         let downvoteIconEls = document.getElementsByClassName('downvote-icon')
         for (let i = postData.length -1; i >= 0; i--) {
-            sectionEl.innerHTML += `<div class="post">
+            sectionEl.innerHTML += `
+            <button type="button" class="btn btn-dark" id="post-btn">Post</button>
+            <div class="post">
             <div class="vote-container">
             <img class="upvote-icon" src="/assets/up-arrow (1).png" alt="">
             <p class="vote-count">${postData[i].votes}</p>
