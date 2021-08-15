@@ -74,12 +74,8 @@ async function renderPosts() {
         <h3 class="post-title" id="title-inp" contenteditable="true">Write your title</h3>
         <h4 class="post-user" id="post-user">Posted by user ${username}</h4>
         <p class="post-content" id="content-inp" contenteditable="true">Write your post here!</p></div>`
-
-        let upvoteIconEls = document.getElementsByClassName('upvote-icon')
-        let downvoteIconEls = document.getElementsByClassName('downvote-icon')
         for (let i = postData.length -1; i >= 0; i--) {
             sectionEl.innerHTML += `
-            <button type="button" class="btn btn-dark" id="post-btn">Post</button>
             <div class="post">
             <div class="vote-container">
             <img class="upvote-icon" src="/assets/up-arrow (1).png" alt="">
@@ -88,38 +84,9 @@ async function renderPosts() {
             <h3 class="post-title">${postData[i].title}</h3>
             <h4 class="post-user">Posted by user ${postData[i].user}</h4>
             <p class="post-content">${postData[i].content}</p></div>`
-            // upvoteIconEls[i].addEventListener('click', () => {
-            //     for (let c = 0; c < postData.length; c++) {
-            //         if (this == upvoteIconEls[c]) {
-            //             console.log(upvoteIconEls[c]);
-            //             let newVotes = postData[c].votes++
-            //             updateData(c, {
-            //                 id: postData[c].id,
-            //                 title: postData[c].title,
-            //                 content: postData[c].content,
-            //                 user: postData[c].user,
-            //                 votes: newVotes
-            //             })
-            //         }
-            //     }
-            // })
-            // downvoteIconEls[i].addEventListener('click', () => {
-            //     for (let c = 0; c < postData.length; c++) {
-            //         if (this == downvoteIconEls[c]) {
-            //             console.log(downvoteIconEls[c]);
-            //             let newVotes = postData[c].votes--
-            //             updateData(c, {
-            //                 id: postData[c].id,
-            //                 title: postData[c].title,
-            //                 content: postData[c].content,
-            //                 user: postData[c].user,
-            //                 votes: newVotes
-            //             })
-            //         }
-            //     }
-            // })
         }
         let postBtnEl = document.getElementById('post-btn')
+        postBtnEl.style.display = 'inline'
         postBtnEl.addEventListener('click', async () => {
             let contenteditables = document.querySelectorAll('[contenteditable]')
             let text1 = contenteditables[0].textContent
